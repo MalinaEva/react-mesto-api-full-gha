@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 5.45.126.19
+IP 5.45.126.19
 
 Frontend https://prkt.myfast.space/
 

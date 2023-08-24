@@ -31,13 +31,13 @@ const apiRouter = express.Router();
 
 apiRouter.use('/users', usersRouter);
 apiRouter.use('/cards', cardsRouter);
-apiRouter.get('/crash-test', () => {
+app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-apiRouter.post('/signin', validateRequest(loginValidationSchema), login);
-apiRouter.post('/signup', validateRequest(registerValidationSchema), createUser);
+app.post('/signin', validateRequest(loginValidationSchema), login);
+app.post('/signup', validateRequest(registerValidationSchema), createUser);
 apiRouter.use((req, res) => sendResponse(res, { message: NOT_FOUND_MESSAGE }, NOT_FOUND));
 
 app.use(API_PREFIX, apiRouter);
