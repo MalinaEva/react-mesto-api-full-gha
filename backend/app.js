@@ -15,7 +15,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const corsConfig = require('./utils/corsConfig');
 
 const app = express();
-const port = 4000;
+const port = 3000;
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
