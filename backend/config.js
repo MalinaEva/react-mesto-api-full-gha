@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const {
   NODE_ENV = 'development',
-  PORT = '4000',
+  PORT = '3000',
   BACKEND_URL = 'http://localhost:4000',
   FRONTEND_URL = 'http://localhost:3000',
   DB_HOST = 'localhost',
