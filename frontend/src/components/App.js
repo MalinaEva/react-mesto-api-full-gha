@@ -57,7 +57,7 @@ function App () {
 		api.getUserInfo()
 		.then((userData) => setCurrentUser(userData))
 		.catch((err) => console.log(err));
-	}, []);
+	}, [loggedIn]);
 
 	const closeAllPopups = () => {
 		setIsAvatarPopupOpen(false);

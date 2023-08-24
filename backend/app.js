@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { DB_URL, API_PREFIX, PORT } = require('./config');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
@@ -13,6 +15,7 @@ const validateRequest = require('./middleware/validateRequest');
 const { loginValidationSchema, registerValidationSchema } = require('./validations/userValidations');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const corsConfig = require('./utils/corsConfig');
+const rateLimitConfig = require('./utils/rateLimitConfig');
 
 const app = express();
 
@@ -21,10 +24,12 @@ mongoose.connect(DB_URL, {
   useUnifiedTopology: true,
 });
 
+app.use(helmet());
 app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
+app.use(rateLimit(rateLimitConfig));
 
 const apiRouter = express.Router();
 
