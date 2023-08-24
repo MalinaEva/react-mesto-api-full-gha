@@ -1,7 +1,6 @@
-const cors = require('cors');
 const { FRONTEND_URL } = require('../config');
 
-const corsMiddleware = cors({
+const corsConfig = {
   origin: (origin, callback) => {
     if (FRONTEND_URL === origin || !origin) {
       callback(null, true);
@@ -9,6 +8,6 @@ const corsMiddleware = cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-});
+};
 
-module.exports = corsMiddleware;
+module.exports = corsConfig;

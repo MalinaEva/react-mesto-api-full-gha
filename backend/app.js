@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const { DB_URL } = require('./config');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
@@ -11,7 +12,7 @@ const { login, createUser } = require('./controllers/users');
 const validateRequest = require('./middleware/validateRequest');
 const { loginValidationSchema, registerValidationSchema } = require('./validations/userValidations');
 const { requestLogger, errorLogger } = require('./middleware/logger');
-const { corsMiddleware } = require('./middleware/cors');
+const corsConfig = require('./utils/corsConfig');
 
 const app = express();
 const port = 4000;
@@ -21,7 +22,7 @@ mongoose.connect(DB_URL, {
   useUnifiedTopology: true,
 });
 
-app.use(corsMiddleware);
+app.use(cors(corsConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger);
