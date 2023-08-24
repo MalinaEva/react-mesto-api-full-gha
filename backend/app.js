@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
-const { DB_URL, API_PREFIX } = require('./config');
+const { DB_URL, API_PREFIX, PORT } = require('./config');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const { sendResponse } = require('./utils/sendResponse');
@@ -15,7 +15,6 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const corsConfig = require('./utils/corsConfig');
 
 const app = express();
-const port = 3000;
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
@@ -31,20 +30,20 @@ const apiRouter = express.Router();
 
 apiRouter.use('/users', usersRouter);
 apiRouter.use('/cards', cardsRouter);
-app.get('/crash-test', () => {
+apiRouter.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-app.post('/signin', validateRequest(loginValidationSchema), login);
-app.post('/signup', validateRequest(registerValidationSchema), createUser);
+apiRouter.post('/signin', validateRequest(loginValidationSchema), login);
+apiRouter.post('/signup', validateRequest(registerValidationSchema), createUser);
 apiRouter.use((req, res) => sendResponse(res, { message: NOT_FOUND_MESSAGE }, NOT_FOUND));
 
 app.use(API_PREFIX, apiRouter);
 app.use(errorLogger);
 app.use(errors());
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`Сервер запущен на порту ${port}`);
+  console.log(`Сервер запущен на порту ${PORT}`);
 });
