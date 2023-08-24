@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
-const { DB_URL } = require('./config');
+const { DB_URL, API_PREFIX } = require('./config');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const { sendResponse } = require('./utils/sendResponse');
@@ -40,7 +40,7 @@ apiRouter.post('/signin', validateRequest(loginValidationSchema), login);
 apiRouter.post('/signup', validateRequest(registerValidationSchema), createUser);
 apiRouter.use((req, res) => sendResponse(res, { message: NOT_FOUND_MESSAGE }, NOT_FOUND));
 
-app.use('/api', apiRouter);
+app.use(API_PREFIX, apiRouter);
 app.use(errorLogger);
 app.use(errors());
 
