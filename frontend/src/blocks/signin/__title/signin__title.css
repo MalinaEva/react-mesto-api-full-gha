@@ -1,0 +1,18 @@
+.signin__title {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 900;
+    padding: 0 0 50px 0;
+    align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+    .signin__title {
+        font-size: 20px;
+        line-height: 24px;
+        padding: 0 0 40px 0;
+    }
+}

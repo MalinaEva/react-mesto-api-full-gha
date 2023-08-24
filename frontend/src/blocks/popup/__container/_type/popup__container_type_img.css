@@ -1,0 +1,7 @@
+.popup__container_type_img {
+    max-width: fit-content;
+    max-height: 75vh;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}

@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/MalinaEva/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 5.45.126.19
 
-Frontend https://...
+Frontend https://prkt.myfast.space/
 
-Backend https://...
+Backend https://prkt.myfast.space/api

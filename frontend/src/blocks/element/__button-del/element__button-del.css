@@ -1,0 +1,18 @@
+.element__button-del {
+    background-image: url(../../../images/del.svg);
+    border: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-width: 18px;
+    min-height: 19px;
+    background-color: unset;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.element__button-del:hover {
+    opacity: .6;
+}

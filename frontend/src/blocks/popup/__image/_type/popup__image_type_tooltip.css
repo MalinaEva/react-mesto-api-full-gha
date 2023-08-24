@@ -1,0 +1,13 @@
+.popup__image_type_tooltip {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 24px auto 32px;
+    background-color: #ffffff;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__image_type_tooltip {
+        margin: 25px auto 40px;
+    }
+}

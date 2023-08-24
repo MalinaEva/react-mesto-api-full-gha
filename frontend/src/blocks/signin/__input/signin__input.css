@@ -1,0 +1,24 @@
+.signin__input {
+    padding: 0 0 9px;
+    margin: 30px 36px 0;
+    width: 358px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    background-color: #000000;
+    color: #ffffff;
+    border-bottom: 1px solid #cccccc;
+}
+
+.signin__input:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 767px) {
+    .signin__input {
+        margin: 30px 22px 0;
+        width: 260px;
+    }
+}
