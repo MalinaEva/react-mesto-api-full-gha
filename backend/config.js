@@ -22,5 +22,5 @@ module.exports = {
   PORT,
   DB_URL,
   JWT_SECRET,
-  API_PREFIX
+  API_PREFIX,
 };
