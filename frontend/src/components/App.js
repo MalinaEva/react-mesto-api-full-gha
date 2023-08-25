@@ -51,7 +51,7 @@ function App () {
 		.catch((error) => {
 			console.error(`Error fetching cards data: ${error}`);
 		});
-	}, []);
+	}, [loggedIn]);
 
 	useEffect(() => {
 		api.getUserInfo()
